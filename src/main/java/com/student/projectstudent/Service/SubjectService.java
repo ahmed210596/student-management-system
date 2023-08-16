@@ -17,4 +17,5 @@ public interface SubjectService {
 
     void deleteSubjectById(Long id);
     Long findSubjectIdByName(String subjectName);
+    List<Subject> searchSubjects(String keyword);
 }

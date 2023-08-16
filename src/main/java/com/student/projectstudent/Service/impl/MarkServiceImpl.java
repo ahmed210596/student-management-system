@@ -39,13 +39,17 @@ public class MarkServiceImpl implements MarkService {
                 .orElseThrow(() -> new EntityNotFoundException("Student not found"));
         // Associate the existing student with the new mark
 
-        System.out.println(mark.getMarkId());
+        //System.out.println(mark.getMarkId());
         mark.setStudent(existingStudent);
         mark.setSubject(existingSubject);
+
+
         //existingStudent.setMarks(mark);
         //existingSubject.setMarks(mark);
         // Save the mark
         markRepository.save(mark);
+
+
     }
 
     @Override

@@ -41,4 +41,9 @@ public class StudentServiceImpl  implements StudentService {
     public Long findStudentIdByFullName(String firstName, String lastName) {
         return studentRepository.findStudentIdByFirstNameAndLastName(firstName, lastName);
     }
+
+    @Override
+    public List<Student> searchStudentByFullName(String fullname) {
+        return studentRepository.searchStudentByFirstnameOrLastname(fullname);
+    }
 }

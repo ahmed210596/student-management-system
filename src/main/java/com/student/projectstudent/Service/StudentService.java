@@ -14,6 +14,7 @@ public interface StudentService {
 
     void deleteStudentById(Long id);
     Long findStudentIdByFullName(String firstName, String lastName);
+    List<Student>  searchStudentByFullName(String fullname);
 
 
 }

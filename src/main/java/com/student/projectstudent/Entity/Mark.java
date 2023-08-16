@@ -34,12 +34,20 @@ public class Mark {
         this.examDate= examDate;
     }
 
-    public Long getMarkId() {
+    //public Long getMarkId() {
+       // return id;
+    //}
+
+    //public void setMarkId(Long markId) {
+       // this.id = markId;
+    //}
+
+    public Long getId() {
         return id;
     }
 
-    public void setMarkId(Long markId) {
-        this.id = markId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Student getStudent() {

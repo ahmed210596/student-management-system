@@ -42,4 +42,9 @@ public class SubjectServiceImpl implements SubjectService {
     public Long findSubjectIdByName(String subjectName) {
         return subjectRepository.findSubjectIdByName(subjectName);
     }
+
+    @Override
+    public List<Subject> searchSubjects(String keyword) {
+        return subjectRepository.searchSubject(keyword);
+    }
 }

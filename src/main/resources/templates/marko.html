@@ -9,30 +9,7 @@
           crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <!-- Brand -->
-    <a class="navbar-brand" href="#">Student Management System</a>
-
-    <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/students}">Student Management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/marks}">Teacher Management</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/sbjects}">Teacher Management</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<div th:replace="fragments/navbar "></div>
 
 <div class ="container">
     <div class = "row">
@@ -44,13 +21,14 @@
             <a th:href = "@{/marks/new}" class = "btn btn-primary btn-sm mb-3"> Add Mark</a>
         </div>
     </div>
+
     <table class = "table table-striped table-bordered">
         <thead class = "table-dark">
         <tr>
             <th> marksObtained</th>
-            <th> first name</th>
-            <th> last name </th>
-            <th>subject name</th>
+            <th> FIRST NAME</th>
+            <th> LAST NAME </th>
+            <th>Name of subject</th>
             <th> Date of exam</th>
             <th> Actions </th>
         </tr>
@@ -59,15 +37,15 @@
         <tbody>
         <tr th:each = "mark: ${marks}">
             <td th:text = "${mark.marksObtained}"></td>
-            <td th:text = "${mark.student.firstname}"></td>
-            <td th:text = "${mark.student.lastname}"></td>
+           <td th:text = "${mark.student.firstName}"></td>
+            <td th:text = "${mark.student.lastName}"></td>
             <td th:text = "${mark.subject.name}"></td>
             <td th:text = "${mark.examDate}"></td>
             <td>
                 <a th:href = "@{/marks/edit/{id}(id=${mark.id})}"
                    class = "btn btn-primary">Update</a>
 
-                <a th:href = "@{/subjects/{id}(id=${mark.id})}"
+                <a th:href = "@{/marks/{id}(id=${mark.id})}"
                    class = "btn btn-danger">Delete</a>
 
             </td>

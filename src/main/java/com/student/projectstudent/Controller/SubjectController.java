@@ -6,10 +6,10 @@ import com.student.projectstudent.Service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @Controller
 public class SubjectController {
     @Autowired
@@ -47,5 +47,12 @@ public class SubjectController {
     public String deleteStudent(@PathVariable Long id) {
         subjectService.deleteSubjectById(id);
         return "redirect:/subjects";
+    }
+    @GetMapping("/subjects/search")
+    public String searchSubjects(Model model,@RequestParam String keyword) {
+        if (keyword != null) {
+            model.addAttribute("subjects", subjectService.searchSubjects(keyword));
+        }
+        return "subject";
     }
 }
